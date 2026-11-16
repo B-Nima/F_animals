@@ -5,6 +5,8 @@ import { MapChart } from './components/MapChart';
 import { ClimateChart } from './components/ClimateChart';
 import { BreedsRadar } from './components/BreedsRadar';
 import { FeedBaseChart } from './components/FeedBaseChart';
+import { ComparisonChart } from './components/ComparisonChart';
+import { EconomicCalculator } from './components/EconomicCalculator';
 
 type TabType = 'map' | 'breeds' | 'technologies' | 'data';
 
@@ -194,6 +196,8 @@ function App() {
                   </h3>
                   <CompatibilityTable recommendations={recommendations} />
                 </div>
+                {/* Экономический калькулятор */}
+                <EconomicCalculator districtName={selectedDistrict?.name || ''} />
               </>
             ) : (
               <div className="bg-slate-800/50 rounded-xl border border-slate-700/50 p-8 text-center">
@@ -251,6 +255,10 @@ function App() {
                       </ul>
                     </div>
                   </div>
+                </div>
+                {/* Сравнение районов */}
+                <div className="bg-slate-800/50 rounded-xl border border-slate-700/50 p-4">
+                  <ComparisonChart selectedDistrict={selectedDistrict} />
                 </div>
                 {/* Источники данных */}
                 <div className="bg-slate-800/50 rounded-xl border border-slate-700/50 p-4">
